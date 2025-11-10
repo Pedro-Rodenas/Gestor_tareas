@@ -1,0 +1,224 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #F5F7FA;
+    /* Gris claro elegante */
+    color: #2A2A2A;
+    line-height: 1.45;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+    background: #FFFFFF;
+    padding: 20px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.header-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2B2D6E;
+}
+
+/* =========================================================
+   MAIN WRAPPER
+   ========================================================= */
+.main-content {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 15px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+.card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2B2D6E;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #2B2D6E;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #1E204E;
+}
+
+.btn-secondary {
+    background: #64748B;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+.btn-danger {
+    background: #DC2626;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #B91C1C;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.table thead {
+    background: #2B2D6E;
+    color: #FFFFFF;
+}
+
+.table th,
+.table td {
+    padding: 13px 15px;
+    border-bottom: 1px solid #E2E8F0;
+    text-align: left;
+}
+
+.table tbody tr:hover {
+    background: #F1F5F9;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+    color: #334155;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: #1E293B;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2B2D6E;
+    box-shadow: 0 0 0 2px rgba(43, 45, 110, 0.2);
+    outline: none;
+}
+
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+    /* Oscurece el fondo */
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* POR ENCIMA DE TODO */
+}
+
+/* Mostrar modal */
+.modal-overlay.show {
+    display: flex;
+}
+
+/* =========================================================
+   MODAL BOX
+   ========================================================= */
+.modal {
+    background: #FFFFFF;
+    width: 480px;
+    border-radius: 12px;
+    padding: 30px 28px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
+    animation: modalPop .25s ease;
+    z-index: 10000;
+}
+
+.modal-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2B2D6E;
+    margin-bottom: 18px;
+}
+
+/* Footer modal */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}   
