@@ -4,21 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
-use Carbon\Carbon;
 
 class TareaController extends Controller
 {
-    /* Mostrar todas las tareas (vista principal) */
-    public function index()
+    /* Mostrar todas las tareas */
+    public function index(Request $request)
     {
         $tareas = Tarea::all();
+
+        if ($request->expectsJson()) {
+            return response()->json($tareas);
+        }
+
         return view('tareas.index', compact('tareas'));
     }
 
-    /* Obtener una tarea (JSON) */
-    public function show($id)
+    /* Obtener una tarea */
+    public function show(Request $request, $id)
     {
-        return response()->json(Tarea::findOrFail($id));
+        $tarea = Tarea::findOrFail($id);
+
+        if ($request->expectsJson()) {
+            return response()->json($tarea);
+        }
+
+        return view('tareas.show', compact('tarea'));
     }
 
     /* Guardar nueva tarea */
@@ -30,12 +40,17 @@ class TareaController extends Controller
             'prioridad' => 'nullable',
         ]);
 
-        Tarea::create($validated);
+        $tarea = Tarea::create($validated);
 
-        return redirect()->route('tareas.index')
-            ->with('success', 'Tarea creada!');
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Tarea creada correctamente',
+                'data' => $tarea
+            ], 201);
+        }
+
+        return redirect()->to('/tareas')->with('success', 'Tarea creada!');
     }
-
 
     /* Actualizar tarea */
     public function update(Request $request, $id)
@@ -45,23 +60,35 @@ class TareaController extends Controller
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
+            'prioridad' => 'nullable|string',
+            'duracion_dias' => 'nullable',
             'completada' => 'boolean'
         ]);
 
         $tarea->update($validated);
 
-        return redirect()->route('tareas.index')
-            ->with('success', 'Tarea actualizada!');
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Tarea actualizada correctamente',
+                'data' => $tarea
+            ]);
+        }
+
+        return redirect()->to('/tareas')->with('success', 'Tarea actualizada!');
     }
 
-
     /* Eliminar tarea */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $tarea = Tarea::findOrFail($id);
         $tarea->delete();
 
-        return redirect()->route('tareas.index')
-            ->with('success', 'Tarea eliminada correctamente');
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Tarea eliminada correctamente'
+            ]);
+        }
+
+        return redirect()->to('/tareas')->with('success', 'Tarea eliminada correctamente');
     }
 }

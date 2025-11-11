@@ -358,10 +358,10 @@ input[type="search"]::-webkit-search-cancel-button {
 .prioridad-alta{
     background: var(--bg-red-250);
 }
-.prioridad-media{
+.prioridad-medio{
     background-color: var(--bg-orange-250);
 }
-.prioridad-bajo{
+.prioridad-baja{
     background-color: var(--bg-yellow-250);
 }
 

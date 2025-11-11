@@ -68,13 +68,7 @@
                 </div>
 
                 <div class="cell cell-210 cell-compartido">
-                    @if($tarea->prioridad == "Alta")
-                    <p class="prioridad prioridad-alta">{{$tarea->prioridad}}</p>
-                    @elseif($tarea->prioridad == "Medio")
-                    <p class="prioridad prioridad-medio">{{$tarea->prioridad}}</p>
-                    @else
-                    <p class="prioridad prioridad-bajo">{{$tarea->prioridad}}</p>
-                    @endif
+                    <p class="prioridad prioridad-{{ strtolower(str_replace(' ', '-', $tarea->prioridad ?? 'normal')) }}">{{$tarea->prioridad}}</p>
 
                     @if($tarea->completada == null)
                     <p class="task-status task-proceso">En Proceso</p>
