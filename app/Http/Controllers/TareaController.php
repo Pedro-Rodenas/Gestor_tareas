@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use Carbon\Carbon;
 
 class TareaController extends Controller
 {
@@ -26,6 +27,7 @@ class TareaController extends Controller
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
+            'prioridad' => 'nullable',
         ]);
 
         Tarea::create($validated);
@@ -62,5 +64,4 @@ class TareaController extends Controller
         return redirect()->route('tareas.index')
             ->with('success', 'Tarea eliminada correctamente');
     }
-
 }

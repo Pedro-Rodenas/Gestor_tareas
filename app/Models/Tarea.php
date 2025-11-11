@@ -9,5 +9,5 @@ class Tarea extends Model
     protected $connection = 'mongodb';
     protected $collection = 'tareas';
 
-    protected $fillable = ['titulo', 'descripcion', 'completada'];
+    protected $fillable = ['titulo', 'descripcion', 'completada','prioridad','duracion_dias'];
 }

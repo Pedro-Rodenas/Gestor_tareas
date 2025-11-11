@@ -6,6 +6,12 @@
 
             <input name="titulo" type="text" placeholder="Título" required>
             <textarea name="descripcion" rows="4" placeholder="Descripción"></textarea>
+            <select class="select" name="prioridad" rows="4">
+                <option selected disabled>Seleccione Prioridad</option>
+                <option value="Alta">Alta</option>
+                <option value="Baja">Baja</option>
+                <option value="Medio">Medio</option>
+            </select>
 
             <div class="modal-actions">
                 <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
