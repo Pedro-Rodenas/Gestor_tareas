@@ -8,7 +8,9 @@
     <title>@yield('title', 'Gestor de Tareas')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -23,22 +25,27 @@
             <h1 class="header-title">Nebulix</h1>
             <nav class="nav nav-desktop">
                 <a class="link" href="">
-                    <i class='bxr  bx-dashboard-alt'    ></i> 
+                    <i class='bxr  bx-dashboard-alt'></i>
                     Dashboard
                 </a>
                 <a class="link active" href="">
-                    <i class='bxr  bx-checkbox-checked'    ></i> 
+                    <i class='bxr  bx-checkbox-checked'></i>
                     Tareas
                 </a>
             </nav>
             <div class="account">
-                <div class="profile">
+                <div class="profile" id="profileBtn">
                     <p class="profile-name">H</p>
-                    <i class='bxrds  bx-chevron-down'    ></i> 
+                    <i class='bxrds  bx-chevron-down'></i>
                 </div>
-                <div class="dropdown">
-                    <i class='bxr  bx-arrow-out-up-square-half'    ></i> 
-                     Cerrar sesión
+                <div class="dropdown" id="profileDropdown">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn-logout" type="submit">
+                            <i class='bx bx-arrow-from-right'></i>
+                            Cerrar sesión
+                        </button>
+                    </form>
                 </div>
             </div>
         </header>
@@ -47,6 +54,7 @@
 
     <script src="{{ asset('js/tareas.js') }}"></script>
     <script src="{{ asset('js/filtroBusqueda.js') }}"></script>
+    <script src="{{ asset('js/cerrar_sesion.js') }}"></script>
 
     @yield('scripts')
 </body>

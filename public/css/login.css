@@ -1,0 +1,287 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Fondo */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 20% 20%, #293070, #151831 80%);
+    overflow: hidden;
+    color: #fafafa;
+}
+
+/* SATURACIÓN GLOW SUAVE */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 120%, #866c23 0%, transparent 65%);
+    opacity: .25;
+    pointer-events: none;
+}
+
+/* Card principal */
+.container {
+    width: 900px;
+    height: 560px;
+    display: flex;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .5);
+
+    animation: fadeIn 0.8s ease-out;
+    transform-origin: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Panel imagen */
+.img-section {
+    flex: 1;
+    background: url("/img/gestor_tareas.webp") center/cover no-repeat;
+    position: relative;
+    filter: saturate(1.1);
+}
+
+.img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, #1c1d45d0, #121224d0);
+    backdrop-filter: blur(4px);
+}
+
+.img-section h2 {
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    color: #fff;
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: .8px;
+    animation: slideLeft 0.8s ease-out;
+}
+
+.img-section span {
+    color: #D4AF37;
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Panel formulario */
+.form-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3rem 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: slideFade 0.7s ease-out;
+    position: relative;
+}
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+h1 {
+    margin-bottom: 1.8rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #20255A;
+    letter-spacing: -.5px;
+}
+
+/* INPUTS */
+.input-group {
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.88rem .95rem;
+    border: 1.7px solid #c7c9d5;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #fff;
+    transition: border .23s, box-shadow .23s;
+}
+
+.input-group input::placeholder {
+    color: #888;
+}
+
+.input-group input:focus {
+    border-color: #3642a6;
+    box-shadow: 0 0 0 3px rgba(54, 66, 166, .25);
+}
+
+
+/* Botón principal */
+.btn-primary {
+    background: linear-gradient(135deg, #2B2D6E, #1D1E54);
+    color: #fff;
+    padding: .85rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    margin-top: .4rem;
+    transition: .2s;
+    font-weight: 500;
+    letter-spacing: .3px;
+    box-shadow: 0 7px 20px rgba(43, 45, 110, .35);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #23255f, #161749);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(43, 45, 110, .45);
+}
+
+/* DIVIDER */
+.divider {
+    text-align: center;
+    margin: 1.6rem 0;
+    font-size: .95rem;
+    color: #555;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 36%;
+    height: 2px;
+    background: #bbb;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* .divider span {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0 8px;
+} */
+
+
+/* BOTONES SOCIALES */
+.social-group {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .25s;
+    border: 1px solid transparent;
+    letter-spacing: .2px;
+}
+
+.social-btn svg {
+    width: 21px;
+    height: 21px;
+}
+
+/* Google */
+.google {
+    background: #DB4437;
+}
+
+.google:hover {
+    background: #ad3025;
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* Twitch */
+.twitch {
+    background: #6441A5;
+}
+
+.twitch:hover {
+    background: #4d2f82;
+    transform: translateY(-3px) scale(1.03);
+}
+
+
+/* footer mini */
+.credit {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    color: #fff;
+    opacity: .65;
+    font-size: .82rem;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 830px) {
+    .container {
+        width: 90%;
+        height: 650px;
+        flex-direction: column;
+    }
+
+    .img-section {
+        height: 40%;
+    }
+}
